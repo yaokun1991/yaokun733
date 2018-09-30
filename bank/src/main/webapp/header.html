@@ -1,0 +1,83 @@
+<!-- 头部 start -->
+<script>
+    $(function () {
+
+        $.get("account/findAccount", {}, function (data) {
+            if(data!=null){
+                var msg = data.accountId;
+                $("#login_text").html("退出");
+                $("#span_username").html(msg);
+            }else {
+                $("#login_text").html("登录");
+                $("#span_username").html("游客");
+
+            }
+
+
+        });
+
+        $("#remain_search").click(function () {
+            /*      location.href = "http://localhost/bank/remaining.html?accountId=" +data.accountId ;*/
+            location.href = "http://localhost/bank/remaining.html";
+        })
+
+        $("#trade_search").click(function () {
+            location.href = "http://localhost/bank/tradeRecord.html";
+        });
+
+        $("#transfer_to").click(function () {
+            location.href = "http://localhost/bank/transfer.html";
+        })
+
+
+    });
+
+</script>
+
+<header id="header">
+
+    <div class="shortcut">
+        <tr>
+            <span id="span_username"></span>
+            <td>用户,欢迎你登录考拉个人网上银行</td>
+        </tr>
+        <!-- 未登录状态  -->
+        <div class="login_out">
+            <a  id="login_text" href="login.html"></a>
+
+        </div>
+
+    </div>
+
+    <div align="center">
+        <ul>
+            <li style="font-size: 25px">操作菜单</li>
+
+        </ul>
+        <ul style="font-size: 20px">
+            <span><a href="index.html">个人首页</a></span>
+            <span><a id="remain_search">账号余额查询</a></span>
+            <span><a id="trade_search">交易记录查询</a></span>
+            <span><a id="transfer_to">行内单笔转账</a></span>
+        </ul>
+
+
+    </div>
+</header>
+<!-- 头部 end -->
+<!-- 首页导航 -->
+<div>
+    <ul class="nav">
+        <!--  <li class="nav-active"><a href="index.html">首页</a></li>
+          <li><a href="route_list.html">门票</a></li>
+          <li><a href="route_list.html">酒店</a></li>
+          <li><a href="route_list.html">香港车票</a></li>
+          <li><a href="route_list.html">出境游</a></li>
+          <li><a href="route_list.html">国内游</a></li>
+          <li><a href="route_list.html">港澳游</a></li>
+          <li><a href="route_list.html">抱团定制</a></li>
+          <li><a href="route_list.html">全球自由行</a></li>
+          <li><a href="favoriterank.html">收藏排行榜</a></li>-->
+    </ul>
+</div>
+    

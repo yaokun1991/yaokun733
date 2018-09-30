@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>个人网上银行系统</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.3.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--导入布局js，共享header和footer-->
+    <script type="text/javascript" src="js/include.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<script>
+    $(function () {
+        $("#tansferBtn").click(function () {
+            $.get("account/transfer", $("#transferForm").serialize(), function (data) {
+                if (!data.flag) {
+                    $("#hid").html(data.errorMsg);
+                } else {
+                    var transferId = $("#transferId").val();
+                    var transferMoney = $("#transferMoney").val();
+                    // location.href = "http://localhost/bank/transfer_success.html";
+                    location.href = "http://localhost/bank/transfer_success.html?transferId=" + transferId + "&transferMoney=" + transferMoney;
+                }
+
+            });
+
+        })
+    })
+</script>
+
+
+<body>
+<div id="header"></div>
+
+<form id="transferForm" name="transferForm">
+
+    <div id="divtb" align="center">
+        <ul>
+            <li style="font-size: 25px ">行内单笔转账</li>
+        </ul>
+        <ul id="ulchange">
+
+            <li id="hid" style="color: #ff4444"></li>
+            <li style="font-size: 17px">行内单笔转账清单</li>
+            <li>接受账号： <input style="border-style:solid" type="text" id="transferId" name="transferId"/></li>
+            <li>转账金额： <input style="border-style:solid" type="text" id="transferMoney" name="transferMoney"/></li>
+            <li>
+                    <span>
+                        <input type="button" id="tansferBtn" value="进行转账">
+                    </span>
+                <span>
+                        <input type="reset" value="取消操作">
+                    </span>
+            </li>
+        </ul>
+    </div>
+
+
+</form>
+
+
+</body>
+</html>

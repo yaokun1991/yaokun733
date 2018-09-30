@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>个人网上银行系统</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.3.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--导入布局js，共享header和footer-->
+    <script type="text/javascript" src="js/include.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<script>
+
+    $(function () {
+        Date.prototype.toLocaleString = function() {
+            return this.getFullYear() + "年" + (this.getMonth() + 1) + "月" + this.getDate() + "日 " ;
+        };
+
+        $("#queryTrade").click(function () {
+            $.get("trade/findTrade", $("#tradeForm").serialize(), function (data) {
+                //alert(data.data[0].tradeMoney );
+                if (!data.flag) {
+                    $("#hid").html("*"+data.errorMsg);
+                    $("#trade_record").html("");
+                }else {
+                    $("#hid").html("");
+                    var lis = "";
+                    for(var i = 0; i < data.data.length;i++){
+
+                        var time = new Date(data.data[i].tradeTime);
+                        var tradeTime = time.toLocaleString();
+                        /*  alert(data.data[i].tradeMoney);*/
+                        lis+= "<li>账号: " + data.data[i].accountId + "转账金额：" + data.data[i].tradeMoney+ " 交易时间:" + tradeTime + " 交易类型: ";
+                        if (data.data[i].tradeType == 1) {
+                            lis += "存款</li>";
+                        } else if (data.data[i].tradeType == 2) {
+                            lis += "取款</li>";
+                        } else if (data.data[i].tradeType == 3) {
+                            lis += "转账</li>";
+                        }
+
+                        $("#trade_record").html(lis);
+                    }
+                    /*if (!data.flag) {
+                        $("#hid").html(data.errorMsg);
+                    }
+                    var msg = "";
+                    $.each(data, function (index, value) {
+                        alert();
+                       /!* alert(value[i].tradeMoney);*!/
+                        msg += "<li>账号" + value.accountId + "交易时间" + value.tradeTime + "交易类型 ";
+                        if (value.tradeType == 1) {
+                            msg += "存款</li>";
+                        } else if (value.tradeType == 2) {
+                            msg += "取款</li>";
+                        } else if (value.tradeType == 3) {
+                            msg += "存款</li>";
+                        }
+
+                    })
+                    $("#trade_record").html(msg);*/
+
+                }
+
+            });
+        })
+    })
+
+
+
+</script>
+<body>
+<div id="header"></div>
+
+
+<form id="tradeForm" name="tradeForm">
+
+    <div id="divtb" align="center">
+        <ul>
+            <li id="hid" style="color: #ff4444"></li>
+            <li>开始时间： <input type="date" id="beginTime" name="beginTime"></li>
+            <li>结束时间： <input type="date" id="endTime" name="endTime"></li>
+            <li>*本查询仅能查询距离当前一个月的业务</li>
+            <li>
+                    <span>
+                        <input type="button" id="queryTrade" value="查看交易明细">
+                    </span>
+                <span>
+                        <input type="reset" value="取消操作">
+                    </span>
+            </li>
+        </ul>
+    </div>
+
+
+</form>
+
+<div align="center" style="collapse: 1">
+    <ul id="trade_record">
+
+    </ul>
+</div>
+
+</body>
+</html>

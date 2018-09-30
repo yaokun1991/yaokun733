@@ -1,0 +1,148 @@
+<span style="font-size:18px;"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>ID名字性别年龄地址</title>
+   <style type="text/css">
+    *{
+       margin  : 0 auto;
+       padding: 0px;
+       list-style: none;
+      }
+    .e{
+       width: 500px;
+       border-top: solid #f00 1px;/*定义整个div的上，左边界*/
+       border-left: 1px solid #f00;
+       display: table;
+       margin-top: 100px;
+       }/*定义表格区域大小和边框等参数*/
+     li{
+       float: left;
+     }/*一定要记着让LI向左浮动，这样后边的才会自动跟进*/
+    .id,.name,.x,.z,.d{
+       color: #00f;
+       font-size: 12px;
+       text-align: center;
+       border-right: 1px solid #f00;/*定义每格的右，下边界*/
+       border-bottom: 1px solid #f00;
+       height: 30px;
+       line-height: 26px;
+       }/*定义表格表头等*/
+    /*以下定义表格每列的宽度*/
+    .id{width: 20px;}
+    .name{width: 50px;}
+    .x{width: 30px;}
+    .z{width: 30px;}
+    .d{width: 365px;}
+
+
+   </style>
+</head>
+
+<body>
+<div class="e">
+ <ul>
+  <li class="id">ID</li>
+  <li class="name">名字</li>
+  <li class="x">性别</li>
+  <li class="z">年龄</li>
+  <li class="d">地址</li>
+ </ul>
+
+ <ul>
+  <li class="id">1</li>
+  <li class="name">本山</li>
+  <li class="x">女</li>
+  <li class="z">22</li>
+  <li class="d">北京</li>
+ </ul>
+
+ <ul>
+  <li class="id">2</li>
+  <li class="name">小曾</li>
+  <li class="x">男</li>
+  <li class="z">26</li>
+  <li class="d">上海</li>
+ </ul>
+</div>
+
+</body>
+
+</html></span>
+
+
+
+
+<span style="font-size:18px;"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>ID名字性别年龄地址</title>
+   <style type="text/css">
+    *{
+       margin  : 0 auto;
+       padding: 0px;
+       list-style: none;
+      }
+    .e{
+       width: 500px;
+       border-top: solid #f00 1px;/*定义整个div的上，左边界*/
+       border-left: 1px solid #f00;
+       display: table;
+       margin-top: 100px;
+       }/*定义表格区域大小和边框等参数*/
+     li{
+       float: left;
+     }/*一定要记着让LI向左浮动，这样后边的才会自动跟进*/
+    .id,.name,.x,.z,.d{
+       color: #00f;
+       font-size: 12px;
+       text-align: center;
+       border-right: 1px solid #f00;/*定义每格的右，下边界*/
+       border-bottom: 1px solid #f00;
+       height: 30px;
+       line-height: 26px;
+       }/*定义表格表头等*/
+    /*以下定义表格每列的宽度*/
+    .id{width: 20px;}
+    .name{width: 50px;}
+    .x{width: 30px;}
+    .z{width: 30px;}
+    .d{width: 365px;}
+
+
+   </style>
+</head>
+
+<body>
+<div class="e">
+ <ul>
+  <li class="id">ID</li>
+  <li class="name">名字</li>
+  <li class="x">性别</li>
+  <li class="z">年龄</li>
+  <li class="d">地址</li>
+ </ul>
+
+ <ul>
+  <li class="id">1</li>
+  <li class="name">本山</li>
+  <li class="x">女</li>
+  <li class="z">22</li>
+  <li class="d">北京</li>
+ </ul>
+
+ <ul>
+  <li class="id">2</li>
+  <li class="name">小曾</li>
+  <li class="x">男</li>
+  <li class="z">26</li>
+  <li class="d">上海</li>
+ </ul>
+</div>
+
+</body>
+
+</html></span>

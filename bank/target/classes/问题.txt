@@ -1,0 +1,4 @@
+
+一部分resultinfo 从service返回  另一部分在servlet填充 这样可以吗
+html开发 除了 跳转地址拼接参数 还有别的页面间传递参数的方式吗
+之前debug    if(){return }  执行了return  后面的代码还能 执行 这是为什么
